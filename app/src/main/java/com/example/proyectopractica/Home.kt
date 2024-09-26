@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Home : AppCompatActivity() {
     private lateinit var boton: Button
@@ -50,12 +51,32 @@ class Home : AppCompatActivity() {
         saludar.setOnClickListener {
             saludar()
         }
+
+        val buttonNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        buttonNavigationView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.nav_home->{
+                    Toast.makeText(this, "Estas en Home",Toast.LENGTH_LONG).show()
+                    true
+                }
+                R.id.nav_settings->{
+                    Toast.makeText(this, "Estas en Configuracion",Toast.LENGTH_LONG).show()
+                    true
+                }
+                R.id.nav_profile->{
+                    Toast.makeText(this, "Estas en Perfil",Toast.LENGTH_LONG).show()
+                    true
+                }
+                else->false
+            }
+        }
     }
 
     private fun retornar() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
+
 
     private fun saludar() {
 
