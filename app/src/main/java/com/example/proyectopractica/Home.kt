@@ -56,18 +56,23 @@ class Home : AppCompatActivity() {
         buttonNavigationView.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
                 R.id.nav_home->{
-                    Toast.makeText(this, "Estas en Home",Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, Home::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.nav_settings->{
-                    Toast.makeText(this, "Estas en Configuracion",Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, Setting::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.nav_profile->{
-                    Toast.makeText(this, "Estas en Perfil",Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
                     true
                 }
-                else->false
+                else-> {
+                    false
+                }
             }
         }
     }
